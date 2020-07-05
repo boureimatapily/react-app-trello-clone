@@ -2,6 +2,7 @@ import React from 'react'
 import { withStyles } from "@material-ui/styles";
 import { Grid, Container } from '@material-ui/core';
 import TrelloList from '../Components/Trello/TrelloList';
+import { connect } from 'react-redux';
 
 
 const styles = {
@@ -13,15 +14,19 @@ const styles = {
 class Trello extends React.Component{
  
   render(){
-     const { classes } = this.props;
+     const { classes, lists } = this.props;
     return(
         <Container fixed> 
             <Grid container className={classes.root}>
-                 <TrelloList title="test" />
+                 {lists.map(list => <TrelloList title={list.title} cards={list.cards} />)}
              </Grid>
                
         </Container>
     )
   }
 }
-export default  withStyles(styles)(Trello)
+const mapStateToprops = state =>({
+            lists: state.lists
+})
+
+export default  withStyles(styles)(connect(mapStateToprops)(Trello))
