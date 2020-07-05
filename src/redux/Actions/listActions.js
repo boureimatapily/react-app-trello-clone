@@ -1,9 +1,10 @@
-import { CONSTANTS } from "../type";
+import { CONSTANTS } from "../Actions";
 // import uuid from "uuidv4";
 
 export const addList = title => {
     return {
-        title 
+        type: CONSTANTS.ADD_LIST,
+        payload: title
     }
 //   return (dispatch, getState) => {
 //     const boardID = getState().activeBoard;
