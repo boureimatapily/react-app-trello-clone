@@ -3,11 +3,12 @@ import { withStyles } from "@material-ui/styles";
 import { Grid, Container } from '@material-ui/core';
 import TrelloList from '../Components/Trello/TrelloList';
 import { connect } from 'react-redux';
+import TrelloActionButton from '../Components/Trello/TrelloActionButton';
 
 
 const styles = {
     root:{
-        marginTop:10,
+        display: "flex"
     },
 }
 
@@ -16,12 +17,14 @@ class Trello extends React.Component{
   render(){
      const { classes, lists } = this.props;
     return(
-        <Container fixed> 
-            <Grid container className={classes.root}>
+        <div> 
+            <h2>hello Codetrain</h2>
+            <div container className={classes.root}>
                  {lists.map(list => <TrelloList key={list.id} title={list.title} cards={list.cards} />)}
-             </Grid>
+                 <TrelloActionButton list />
+             </div>
                
-        </Container>
+        </div>
     )
   }
 }
