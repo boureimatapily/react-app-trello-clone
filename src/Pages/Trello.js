@@ -18,7 +18,7 @@ class Trello extends React.Component{
     return(
         <Container fixed> 
             <Grid container className={classes.root}>
-                 {lists.map(list => <TrelloList title={list.title} cards={list.cards} />)}
+                 {lists.map(list => <TrelloList key={list.id} title={list.title} cards={list.cards} />)}
              </Grid>
                
         </Container>
