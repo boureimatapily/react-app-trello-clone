@@ -12,13 +12,15 @@ const useStyles = makeStyles((theme) => ({
   
 }));
 
-export default function TrelloList({title}) {
+export default function TrelloList({title, cards}) {
   const classes = useStyles();
  
   return (
     <div className={classes.root}>
             <h4>{title}</h4>
-            <TrelloCard />
+            {
+                cards.map(card => <TrelloCard text={card.text} />)
+            }
     </div>
   );
 }
