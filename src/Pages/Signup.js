@@ -62,20 +62,16 @@ class Signup extends React.Component {
     })
   }
 
+  onSignup = ()=>{
+    this.props.history.push('/');
+}
   
   handleSubmit = (e) => {
     e.preventDefault();
     const { email, password } = this.state;
 
-    this.props.register(email, password)
-    .then(() => {
-      toast.success("Register successful")
-      this.props.history.push("/")
-    })
-    .catch(error => {
-      toast.error("Signup failed")
-      console.error(error)
-    })
+    this.props.register(email, password, this.onSignup())
+   
   };
 
   render(){
@@ -95,9 +91,10 @@ class Signup extends React.Component {
               placeholder="Email address for mail confirmation"
               fullWidth
               name="email"
+              // value={this.state.email}
               autoFocus
-            //   value={values.email}
-            //   onChange={handleChange}
+              // value={values.email}
+              onChange={this.handleChange}
             //   helperText={errors.email}
             //   error={errors.email ? true : false}
             />
@@ -109,8 +106,8 @@ class Signup extends React.Component {
                   label="Password"
                   fullWidth
                   name="password"
-                //   value={values.password}
-                //   onChange={handleChange}
+                  onChange={this.handleChange}
+                  // value={values.password}                //   onChange={handleChange}
                 //   helperText={errors.password}
                 //   error={errors.password ? true : false}
                 />

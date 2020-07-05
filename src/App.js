@@ -11,7 +11,7 @@ import NavBar from "./Components/NavBar";
 // import AppRoute from "./util/AppRoute";
 import { ToastContainer } from "react-toastify"
 import { connect } from "react-redux";
-import Chat from "./Pages/Chat";
+
 
 
 
@@ -33,18 +33,18 @@ function App(){
     return (
       <React.Fragment>
         <NavBar />
-        {/* <Switch>
+        <Switch>
           <Route
             exact
             path="/"
             component={Home}
            
           />
-         <Route exact path="/chat" component={Chat} />
+         {/* <Route exact path="/chat" component={Chat} /> */}
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={Signup} />
          
-        </Switch> */}
+        </Switch>
         <ToastContainer autoClose={3000} hideProgressBar />
       </React.Fragment>
     );

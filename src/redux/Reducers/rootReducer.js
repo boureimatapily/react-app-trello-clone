@@ -1,9 +1,12 @@
 import { combineReducers } from "redux";
-import  currentUser from "./authReducer";
-// import { firebaseReducer } from "react-redux-firebase";
-// import { firestoreReducer } from "redux-firestore";
+import { firestoreReducer } from "redux-firestore";
+import { firebaseReducer  } from 'react-redux-firebase';
+// import userReducer from "./userReducer"
+
 
 export default combineReducers({
-     currentUser,
+      //     user:userReducer,
+          firebase:firebaseReducer,
+          firestore: firestoreReducer
     
     });

@@ -3,7 +3,7 @@ import { withStyles } from "@material-ui/styles";
 import Paper from "@material-ui/core/Paper";
 import { TextField, Button, Typography, Grid, Container } from "@material-ui/core";
 import { Link } from "react-router-dom";
-import {register, login} from "../redux/Actions/authActions"
+import { authenticateWithGoogle, login} from "../redux/Actions/authActions"
 import { connect } from "react-redux";
 import {toast} from "react-toastify"
 
@@ -45,19 +45,14 @@ class Login extends React.Component {
     })
   }
 
+  onLogin = ()=>{
+    this.props.history.push('/');
+}
   handleSubmit = (e) => {
     e.preventDefault();
     const { email, password } = this.state;
 
-    this.props.login(email, password)
-    .then(() => {
-      toast.success("Login successful")
-      this.props.history.push("/")
-    })
-    .catch(error => {
-      toast.error("Login failed")
-      console.error(error)
-    })
+    this.props.login(email, password, this.onLogin())
   };
 
     
@@ -129,6 +124,7 @@ class Login extends React.Component {
             variant="contained"
             color="primary"
             className={classes.btnotheraccounts}
+            onClick={()=>{this.props.authenticateWithGoogle(this.onLogin)}}
           >
             Google
           </Button>
@@ -158,4 +154,4 @@ class Login extends React.Component {
 }
 
 
-export default  withStyles(styles)(connect(null,{login})(Login))
+export default  withStyles(styles)(connect(null,{login, authenticateWithGoogle})(Login))

@@ -1,64 +1,72 @@
-import auth  from "../../Config/fbconfig"
 
-export const loginSuccess = () => {
-  return {
-    type: "LOGIN_SUCCESS",
-    currentUser: auth.currentUser.toJSON(),
+
+export const register = (email,password, onSuccess)=>{
+
+  return (dispatch, getState,{getFirebase})=>{
+      let firebase = getFirebase()
+      firebase
+          .auth()
+          .createUserWithEmailAndPassword(email,password)
+          .then((user)=>{
+              console.log(user)
+              onSuccess()
+          })
+          .catch((err)=>{
+              console.log(err)
+          })
   }
 }
 
-export const registerSuccess = () => {
-  return {
-    type: "REGISTER_SUCCESS",
-    currentUser: auth.currentUser.toJSON(),
+
+export const login = (email,password)=>{
+
+  return (dispatch, getState,{getFirebase})=>{
+      let firebase = getFirebase()
+      firebase
+          .auth()
+          .signInWithEmailAndPassword(email,password)
+          .then((user)=>{
+              console.log(user)
+              
+          })
+          .catch((err)=>{
+              console.log(err)
+          })
   }
 }
 
-export const register = (email, password) => async dispatch => {
-  try {
-    await auth.createUserWithEmailAndPassword(email, password)
-    dispatch(registerSuccess())
-  } catch (error) {
-    throw error
+export const logout = ()=>{
+  console.log("logout")
+  return (dispatch, getState,{getFirebase})=>{
+      let firebase = getFirebase()
+      firebase
+          .auth()
+          .signOut()
+          .then((user)=>{
+              console.log(user)
+          })
+          .catch((err)=>{
+              console.log(err)
+          })
   }
 }
 
-export const login = (email, password) => async dispatch => {
-  try {
-    await auth.signInWithEmailAndPassword(email, password)
-    dispatch(loginSuccess())
-  } catch (error) {
-    throw error
+export const authenticateWithGoogle = (onSuccess)=>{
+  return (dispatch, getState,{getFirebase})=>{
+      let firebase = getFirebase()
+      const provider = new firebase.auth.GoogleAuthProvider();
+      firebase
+          .auth().signInWithPopup(provider)
+          .then((user)=>{
+              console.log(user)
+              onSuccess()
+          })
+          .catch((err)=>{
+              console.log(err)
+          })
   }
 }
 
-export const logout = () => async dispatch => {
-  try {
-    await auth.signOut()
-    dispatch({ type: "LOGOUT", currentUser: auth.currentUser })
-  } catch (error) {
-    throw error
-  }
-}
 
-export const fetchUser = () => async dispatch => {
-  try {
-    await auth.onAuthStateChanged(currentUser => {
-      if (currentUser) {
-        localStorage.setItem("isAuthenticated", true)
-        dispatch({
-          type: "FETCH_USER",
-          currentUser: currentUser.toJSON(),
-        })
-      } else {
-        localStorage.removeItem("isAuthenticated")
-        dispatch({
-          type: "FETCH_USER",
-          currentUser: null,
-        })
-      }
-    })
-  } catch (error) {
-    throw error
-  }
-}
+
+
