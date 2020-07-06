@@ -24,9 +24,7 @@ export const sort = (
   draggableId,
   type
 ) => {
-  return (dispatch, getState) => {
-    const boardID = getState().activeBoard;
-    dispatch({
+  return {
       type: CONSTANTS.DRAG_HAPPENED,
       payload: {
         droppableIdStart,
@@ -35,31 +33,31 @@ export const sort = (
         droppableIndexStart,
         draggableId,
         type,
-        boardID
+        // boardID
       }
-    });
+  
   };
 };
 
-export const editTitle = (listID, newTitle) => {
-  return {
-    type: CONSTANTS.EDIT_LIST_TITLE,
-    payload: {
-      listID,
-      newTitle
-    }
-  };
-};
+// export const editTitle = (listID, newTitle) => {
+//   return {
+//     type: CONSTANTS.EDIT_LIST_TITLE,
+//     payload: {
+//       listID,
+//       newTitle
+//     }
+//   };
+// };
 
-export const deleteList = listID => {
-  return (dispatch, getState) => {
-    const boardID = getState().activeBoard;
-    return dispatch({
-      type: CONSTANTS.DELETE_LIST,
-      payload: {
-        listID,
-        boardID
-      }
-    });
-  };
-};
+// export const deleteList = listID => {
+//   return (dispatch, getState) => {
+//     const boardID = getState().activeBoard;
+//     return dispatch({
+//       type: CONSTANTS.DELETE_LIST,
+//       payload: {
+//         listID,
+//         boardID
+//       }
+//     });
+//   };
+// };
