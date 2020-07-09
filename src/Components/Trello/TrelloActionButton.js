@@ -1,6 +1,6 @@
 import React from "react";
 import { withStyles } from "@material-ui/styles";
-import { Grid, Container, Icon, ListItemIcon, Card, Button } from "@material-ui/core";
+import {  Icon, Card, Button } from "@material-ui/core";
 import Textarea from 'react-textarea-autosize';
 import { addList, addCard } from "../../redux/Actions";
 import { connect } from "react-redux";
@@ -121,7 +121,7 @@ class TrelloActionButton extends React.Component {
   };
 
   render() {
-    const { classes } = this.props;
+   
     return this.state.formOpen ? this.renderForm() : this.renderAddButton();
   }
 }

@@ -1,4 +1,4 @@
-import React,  { useLayoutEffect, useState } from 'react';
+import React from 'react';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -19,8 +19,8 @@ import { Link } from "react-router-dom";
 import { Grid, Container } from '@material-ui/core';
 import {logout} from "../redux/Actions/authActions"
 import { connect } from 'react-redux';
-import   firebase  from '../Config/fbconfig';
-import auth from "../Config/fbconfig"
+// import   firebase  from '../Config/fbconfig';
+// import auth from "../Config/fbconfig"
 import {toast} from "react-toastify"
 
 

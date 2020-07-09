@@ -1,4 +1,4 @@
-import React, { Component, useLayoutEffect } from "react";
+import React from "react";
 import Home from "./Pages/Home";
 import Signup from "./Pages/Signup";
 import Login from "./Pages/Login";

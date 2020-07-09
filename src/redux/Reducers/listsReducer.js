@@ -1,7 +1,7 @@
 import { CONSTANTS } from "../Actions";
 
-let listID = 2;
-let cardID = 6;
+// let listID = 2;
+// let cardID = 6;
 const initialState = [
   {
     title: "Codetrain",
@@ -49,7 +49,7 @@ const listsReducer = (state = initialState, action) => {
         cards: [],
         id: "list-${listID}",
       };
-      listID += 1;
+      // listID += 1;
       return [...state, newList];
 
     case CONSTANTS.ADD_CARD: {
@@ -57,7 +57,7 @@ const listsReducer = (state = initialState, action) => {
         text: action.payload.text,
         id: "list-${cardID}",
       };
-      cardID += 1;
+      // cardID += 1;
       console.log("action receive", action);
 
       const newState = state.map((list) => {

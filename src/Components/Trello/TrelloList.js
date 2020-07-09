@@ -2,11 +2,13 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import TrelloCard from "./TrelloCard";
 import TrelloActionButton from "./TrelloActionButton";
-import { Droppable, Draggable } from "react-beautiful-dnd";
+import { Droppable } from "react-beautiful-dnd";
+
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    backgroundColor: "#dfe3e6",
+    backgroundColor: "gray",
     borderRadius: 3,
     width: 300,
     height: "100%",
@@ -19,17 +21,11 @@ export default function TrelloList({ title, cards, listID, index }) {
   const classes = useStyles();
 
   return (
-    <Draggable draggableId={String(listID)} index={index}>
-      {(provided) => (
-        <div
-          {...provided.draggableProps}
-          ref={provided.innerRef}
-          className={classes.root}
-          {...provided.dragHandleProps}
-        >
+    
+   
           <Droppable droppableId={String(listID)} type="card">
             {(provided) => (
-              <div {...provided.droppableProps}  ref={provided.innerRef}>
+              <div {...provided.droppableProps}  ref={provided.innerRef} className={classes.root}>
                 <h4>{title}</h4>
                 {cards.map((card, index) => (
                   <TrelloCard
@@ -44,8 +40,7 @@ export default function TrelloList({ title, cards, listID, index }) {
               </div>
             )}
           </Droppable>
-        </div>
-      )}
-    </Draggable>
+        
+
   );
 }

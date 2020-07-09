@@ -1,7 +1,8 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { Card, Typography, CardContent } from "@material-ui/core";
+import { Card, Typography, CardContent, Container } from "@material-ui/core";
 import { Draggable } from "react-beautiful-dnd";
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -13,6 +14,7 @@ export default function TrelloCard({ text, id, index }) {
   const classes = useStyles();
 
   return (
+    <Container fixed>   
     <Draggable draggableId={String(id)} index={index}>
       {(provided) => (
         <div  ref={provided.innerRef}  {...provided.draggableProps} {...provided.dragHandleProps}>  
@@ -30,5 +32,6 @@ export default function TrelloCard({ text, id, index }) {
         </div>
       )}
     </Draggable>
+    </Container>
   );
 }

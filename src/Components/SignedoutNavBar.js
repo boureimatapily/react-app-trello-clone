@@ -1,4 +1,4 @@
-import React,  { useLayoutEffect, useState } from 'react';
+import React  from 'react';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -19,9 +19,9 @@ import { Link } from "react-router-dom";
 import { Grid, Container } from '@material-ui/core';
 import {logout} from "../redux/Actions/authActions"
 import { connect } from 'react-redux';
-import   firebase  from '../Config/fbconfig';
-import auth from "../Config/fbconfig"
-import {toast} from "react-toastify"
+// import   firebase  from '../Config/fbconfig';
+// import auth from "../Config/fbconfig"
+// import {toast} from "react-toastify"
 
 
 const useStyles = makeStyles((theme) => ({
@@ -108,12 +108,12 @@ const useStyles = makeStyles((theme) => ({
   //   setIsAuthenticated(getAuthenticationStatus())
   // })
 
-  const handleLogout = event => {
-    event.preventDefault()
-    logout()
-    toast.success("Logout successful")
+  // const handleLogout = event => {
+  //   event.preventDefault()
+  //   logout()
+  //   toast.success("Logout successful")
   
-  }
+  // }
 
   // const [spacing, setSpacing] = React.useState(2);
   const [anchorEl, setAnchorEl] = React.useState(null);

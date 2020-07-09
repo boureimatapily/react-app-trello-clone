@@ -1,10 +1,9 @@
 import React from "react";
 import { withStyles } from "@material-ui/styles";
-import { Grid, Container } from "@material-ui/core";
 import TrelloList from "../Components/Trello/TrelloList";
 import { connect } from "react-redux";
 import TrelloActionButton from "../Components/Trello/TrelloActionButton";
-import { DragDropContext, Droppable } from "react-beautiful-dnd";
+import { DragDropContext } from "react-beautiful-dnd";
 import { sort } from "../redux/Actions";
 
 const styles = {
@@ -27,7 +26,7 @@ class Trello extends React.Component {
         source.index,
         destination.index,
         draggableId,
-        type
+        
       )
     );
   };
@@ -38,10 +37,8 @@ class Trello extends React.Component {
     return (
       <DragDropContext onDragEnd={this.onDragEnd}>
        <div>  
-          <h2>hello Codetrain</h2>
-          <Droppable droppableId="all-lists" direction="horizontal" type="list">
-            {(provided) => (
-              <div container className={classes.root}  {...provided.droppableProps} ref={provided.innner}>
+          <h2>hello Codetrain</h2> 
+              <div container className={classes.root}>
                 {lists.map((list, index) => (
                   <TrelloList
                     key={list.id}
@@ -51,11 +48,9 @@ class Trello extends React.Component {
                     index={index}
                   />
                 ))}
-                {provided.placeholder}
+               
                 <TrelloActionButton list />
               </div>
-            )}
-          </Droppable>
           </div>
       </DragDropContext>
     );

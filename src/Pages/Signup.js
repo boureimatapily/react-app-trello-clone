@@ -1,11 +1,11 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
+// import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import { TextField, Button, Typography, Grid, Container } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import {register} from "../redux/Actions/authActions"
 import { connect } from "react-redux";
-import { toast } from "react-toastify"
+// import { toast } from "react-toastify"
 import { withStyles } from "@material-ui/styles";
 
 // import {
@@ -19,11 +19,11 @@ import { withStyles } from "@material-ui/styles";
   import LinkMUI from "@material-ui/core/Link";
   
 //   import Hidden from "@material-ui/core/Hidden";
-  import Radio from "@material-ui/core/Radio";
-  import RadioGroup from "@material-ui/core/RadioGroup";
-  import FormControlLabel from "@material-ui/core/FormControlLabel";
-  import FormControl from "@material-ui/core/FormControl";
-  import FormLabel from "@material-ui/core/FormLabel";
+  // import Radio from "@material-ui/core/Radio";
+  // import RadioGroup from "@material-ui/core/RadioGroup";
+  // import FormControlLabel from "@material-ui/core/FormControlLabel";
+  // import FormControl from "@material-ui/core/FormControl";
+  // import FormLabel from "@material-ui/core/FormLabel";
 
 
 const styles ={
